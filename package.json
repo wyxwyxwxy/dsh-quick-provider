@@ -1,0 +1,67 @@
+{
+  "name": "dsh-quick-provider",
+  "version": "1.0.0",
+  "description": "只填 Key 就能接入第三方模型：为 DeepSeek Harness 预置 28 家主流提供商的接口地址与模型清单，选提供商、粘密钥、勾模型即可写入官方 llm-pi-ai 路由。",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/wyxwyxwxy/dsh-quick-provider.git"
+  },
+  "bugs": {
+    "url": "https://github.com/wyxwyxwxy/dsh-quick-provider/issues"
+  },
+  "homepage": "https://github.com/wyxwyxwxy/dsh-quick-provider#readme",
+  "type": "module",
+  "main": "index.js",
+  "exports": {
+    ".": "./index.js",
+    "./client": "./lib/client.js",
+    "./core": "./core/providers.js",
+    "./package.json": "./package.json"
+  },
+  "files": [
+    "index.js",
+    "core",
+    "lib",
+    "cordis.patch.yml",
+    "README.md",
+    "CHANGELOG.md",
+    "LICENSE"
+  ],
+  "scripts": {
+    "test": "node --test \"test/*.test.mjs\"",
+    "verify-endpoints": "node tools/verify-endpoints.mjs"
+  },
+  "keywords": [
+    "deepseek-harness",
+    "dsh",
+    "dsh-plugin",
+    "cordis",
+    "llm",
+    "provider",
+    "api-key",
+    "presets",
+    "openai-compatible",
+    "siliconflow",
+    "deepseek",
+    "qwen",
+    "glm",
+    "kimi",
+    "pi-ai"
+  ],
+  "license": "MIT",
+  "engines": {
+    "node": ">=18.17",
+    "dsh": ">=0.2.0-0 <0.3.0-0"
+  },
+  "dsh": {
+    "bundle": {
+      "patch": "./cordis.patch.yml"
+    },
+    "client": {
+      "platform": "web",
+      "inject": [
+        "@deepseek-ai/dsh-client-ui-settings"
+      ]
+    }
+  }
+}

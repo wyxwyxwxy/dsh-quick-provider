@@ -1,0 +1,12 @@
+# dsh-quick-provider bundle patch: inserts the plugin row into the profile
+# roster. Applied as a profile bundle layer over dsh-base; activate it with
+#
+#   dsh plugin --profile web add github:wyxwyxwxy/dsh-quick-provider
+#
+# The row references the package by name (not by source path) so Node's module
+# resolution finds the installed code. The `id` is what a later layer targets
+# when someone overrides this row from their own profile patch, so it is stable
+# and never reused for a different plugin.
+- insert:
+    - id: quick-provider
+      name: 'dsh-quick-provider'
